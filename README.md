@@ -1,11 +1,10 @@
 # GameCore DLL Source Project
 
 ## 📌 Overview
-GameCore is a **C# DLL** designed to provide core game mechanics such as:
+GameCore is a simple **C# DLL** designed to provide core game mechanics such as:
 - **Object Spawning** (Collectibles & NPCs)
 - **Scoring System**
 - **Game State Management** (Game Manager)
-- **Character System** (Player & NPC Behaviour)
 
 ## 🛠 Features
 ✅ Object spawning with configurable positions and randomization.  
