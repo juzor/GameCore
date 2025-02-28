@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace GameCore
 {
+    public interface ISpawnable
+    {
+        GameObject Spawn(Vector3 position);
+    }
+
     /// <summary>
     /// Handles object spawning (NPCs and collectibles) in random or fixed positions.
     /// </summary>
@@ -12,6 +17,14 @@ namespace GameCore
         private Vector3 _spawnAreaMin;
         private Vector3 _spawnAreaMax;
 
+        private ISpawnable spawnablePrefab;
+        /// <summary>
+        /// Default constructor for testing purposes, see SpawnerTests.cs
+        /// </summary>
+        public Spawner(ISpawnable spawnable)
+        {
+            this.spawnablePrefab = spawnable ?? throw new Exception("Spawner is not initialized with a valid prefab!");
+        }
         /// <summary>
         /// Constructor for Spawner that allows spawning within a random area.
         /// </summary>
@@ -45,6 +58,18 @@ namespace GameCore
 
             // Spawn the object at the random position
             return UnityEngine.Object.Instantiate(_objectToSpawn, randomPosition, Quaternion.identity);
+        }
+        /// <summary>
+        /// For testing purpose only do not use this method. See SpawnerTests.cs
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public GameObject InvalidSpawnObject()
+        {
+            if (spawnablePrefab == null)
+                throw new Exception("Spawner is not initialized with a valid prefab!");
+
+            return spawnablePrefab.Spawn(Vector3.zero);
         }
     }
 }

@@ -14,7 +14,8 @@ namespace GameCore
             MainMenu,
             Playing, 
             Paused, 
-            GameOver
+            GameOver, 
+            Idle
         }
 
         private GameState _currentGameState;
