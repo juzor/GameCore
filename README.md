@@ -1,4 +1,4 @@
-# GameCore DLL Source Project
+# GameCore DLL Source Project (Template)
 
 ## 📌 Overview
 GameCore is a simple **C# DLL** designed to provide core game mechanics such as:
